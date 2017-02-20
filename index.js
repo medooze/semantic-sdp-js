@@ -1,6 +1,6 @@
 module.exports =
 {
-	SDPInfo			: require("./lib/CandidateInfo"),
+	SDPInfo			: require("./lib/SDPInfo"),
 	CandidateInfo		: require("./lib/CandidateInfo"),
 	CodecInfo		: require("./lib/CodecInfo"),
 	DTLSInfo		: require("./lib/DTLSInfo"),
