@@ -1,0 +1,28 @@
+{
+  "name": "semantic-sdp",
+  "version": "1.0.0",
+  "description": "Minimal SDP information semantic data model and parsing tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medooze/semantic-sdp-js.git"
+  },
+  "keywords": [
+    "webrtc",
+    "sdp",
+    "utils"
+  ],
+  "author": "Sergio Garcia Murillo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/medooze/semantic-sdp-js/issues"
+  },
+  "homepage": "https://github.com/medooze/semantic-sdp-js#readme",
+  "dependencies": {
+    "es6-enum": "^1.1.0",
+    "sdp-transform": "medooze/sdp-transform"
+  }
+}
