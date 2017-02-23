@@ -118,10 +118,10 @@ const sdp = "v=0\r\n" +
 
 //Process the sdp
 var offer = SDPInfo.process(sdp);
-       
+
 //Get local DTLS and ICE info
 const dtls = new DTLSInfo(Setup.PASSIVE,"a","b");
-const ice  = new ICEInfo("user","password")
+const ice  = new ICEInfo("user","password");
 
 //Get local candidte
 const candidate = new CandidateInfo("fundation", "componentId", "transport", "priority", "address", "port", "type");
