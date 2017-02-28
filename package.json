@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test/example.js",
-    "docs"   : "documentation build lib/SDIPinfo.js lib/*.js --shallow -o docs -f html"
+    "docs"   : "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
   },
   "repository": {
     "type": "git",
