@@ -4,7 +4,8 @@
   "description": "Minimal SDP information semantic data model and parsing tools",
   "main": "index.js",
   "scripts": {
-    "test": "test/example.js"
+    "test": "test/example.js",
+    "docs"   : "documentation build lib/SDIPinfo.js lib/*.js --shallow -o docs -f html"
   },
   "repository": {
     "type": "git",

@@ -120,11 +120,11 @@ const sdp = "v=0\r\n" +
 var offer = SDPInfo.process(sdp);
 
 //Get local DTLS and ICE info
-const dtls = new DTLSInfo(Setup.PASSIVE,"a","b");
-const ice  = new ICEInfo("user","password");
+const dtls = new DTLSInfo(Setup.PASSIVE,"sha-256","F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F");
+const ice  = new ICEInfo("af46F","a34FasdS++jdfofdslkjsd/SDV");
 
 //Get local candidte
-const candidate = new CandidateInfo("fundation", "componentId", "transport", "priority", "address", "port", "type");
+const candidate = new CandidateInfo(1,1, "udp", 2122260223, "192.168.0.196", 56143, "host");
 
 //Create local SDP info
 let answer = new SDPInfo();
@@ -133,7 +133,7 @@ let answer = new SDPInfo();
 let audioOffer = offer.getAudio();
 
 //If we have audio
-if (audioOffer!=null)
+if (audioOffer)
 {
 	//Create audio media
 	let audio = new MediaInfo("audio", "audio");
@@ -158,7 +158,7 @@ if (audioOffer!=null)
 let videoOffer = offer.getVideo();
 
 //If offer had video
-if (videoOffer!=null)
+if (videoOffer)
 {
 	//Create video media
 	let  video = new MediaInfo("video", "video");
@@ -171,7 +171,7 @@ if (videoOffer!=null)
 	let fec = videoOffer.getCodec("flexfec-03");
 	//Add video codecs
 	video.addCodec(vp9);
-	if (fec!=null)
+	if (fec)
 		video.addCodec(fec);
 	//Limit incoming bitrate
 	video.setBitrate(1024);
