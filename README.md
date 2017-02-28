@@ -3,9 +3,12 @@ Minimal SDP information semantic data model and parsing tools
 
 ## Install
 
-    npm i --save semantic-sdp
+```
+npm i --save semantic-sdp
+```
 
 ## Usage
+
 ```javascript
 const SemanticSDP = require('semantic-sdp');
 ```
