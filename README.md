@@ -8,7 +8,7 @@ This project provies an abstraction layer on top of SDP that allows to acces and
 
 As it is meant to be used on WebRTC to WebRTC scenarios, so some SDP information can be safelly ignored, allowing to provide a simple and intuitive API.
 
-Currently it only parses/serializes Unified Plans SDP (Chrome), but we will support Firefox and Edge soon (stay tunned and PRs are wellcome).
+Currently it only parses/serializes Plan B SDP (Chrome), but we will support Firefox and Edge soon (stay tunned and PRs are wellcome).
 
 ## For the future
 If you think it further exchanging the SDP information is all that it is needed to perform a peer to peer SDP exchange, so the intention is to provide serialization functions to be able to use this over the wire and only parse/serialize it on the endpoints or server side.
