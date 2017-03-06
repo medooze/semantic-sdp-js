@@ -1,6 +1,6 @@
 {
   "name": "semantic-sdp",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Minimal SDP information semantic data model and parsing tools",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/medooze/semantic-sdp-js#readme",
   "dependencies": {
-    "es6-enum": "^1.1.0",
     "randombytes": "^2.0.3",
     "sdp-transform": "medooze/sdp-transform"
   }
