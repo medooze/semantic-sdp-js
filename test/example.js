@@ -8,6 +8,7 @@ const ICEInfo		= SemanticSDP.ICEInfo;
 const StreamInfo	= SemanticSDP.StreamInfo;
 const TrackInfo		= SemanticSDP.TrackInfo;
 const Setup		= SemanticSDP.Setup;
+const SourceGroupInfo   = SemanticSDP.SourceGroupInfo;
 
 
 const sdp = "v=0\r\n" +
@@ -129,18 +130,20 @@ const candidate = new CandidateInfo(1,1, "udp", 2122260223, "192.168.0.196", 561
 //Create local SDP info
 let answer = new SDPInfo();
 
+//Add ice and dtls info
+answer.setDTLS(dtls);
+answer.setICE(ice);
+answer.addCandidate(candidate);
+
 //Get remote audio m-line info 
-let audioOffer = offer.getAudio();
+let audioOffer = offer.getMedia("audio");
 
 //If we have audio
 if (audioOffer)
 {
 	//Create audio media
 	let audio = new MediaInfo("audio", "audio");
-	//Add ice and dtls info
-	audio.setDTLS(dtls);
-	audio.setICE(ice);
-	audio.addCandidate(candidate);
+	
 	//Get codec type
 	let opus = audioOffer.getCodec("opus");
 	//Add opus codec
@@ -155,17 +158,13 @@ if (audioOffer)
 }
 
 //Get remote video m-line info 
-let videoOffer = offer.getVideo();
+let videoOffer = offer.getMedia("video");
 
 //If offer had video
 if (videoOffer)
 {
 	//Create video media
 	let  video = new MediaInfo("video", "video");
-	//Add ice and dtls info
-	video.setDTLS(dtls);
-	video.setICE(ice);
-	video.addCandidate(candidate);
 	//Get codec types
 	let vp9 = videoOffer.getCodec("vp9");
 	let fec = videoOffer.getCodec("flexfec-03");
@@ -194,8 +193,17 @@ for (let i=1;i<4;i++)
 	let stream = new StreamInfo("sream"+i);
 	//Create track
 	track = new TrackInfo("video", "track1");
-	//Add ssrc
-	track.addSSRC(ssrc++);
+	//Get ssrc, rtx and fec 
+	const media = ssrc++;
+	const rtx = ssrc++;
+	const fec = ssrc++;
+	//Add ssrcs to track
+	track.addSSRC(media);
+	track.addSSRC(rtx);
+	track.addSSRC(fec);
+	//Add RTX and FEC group	
+	track.addSourceGroup(new SourceGroupInfo("FID",[media,rtx]));
+	track.addSourceGroup(new SourceGroupInfo("FEC-FR",[media,fec]));
 	//Add it
 	stream.addTrack(track);
 	//Create track
@@ -208,4 +216,11 @@ for (let i=1;i<4;i++)
 	answer.addStream(stream);
 }
 		
-console.log(answer.toString());
+console.log("Answer:"+answer.toString());
+
+const cloned = answer.clone();
+
+console.log("Cloned:"+cloned.toString());
+
+console.log(JSON.stringify(answer.plain()));
+

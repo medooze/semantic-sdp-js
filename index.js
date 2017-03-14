@@ -10,5 +10,6 @@ module.exports =
 	SourceGroupInfo		: require("./lib/SourceGroupInfo"),
 	SourceInfo		: require("./lib/SourceInfo"),
 	StreamInfo		: require("./lib/StreamInfo"),
-	TrackInfo		: require("./lib/TrackInfo")
+	TrackInfo		: require("./lib/TrackInfo"),
+	Direction		: require("./lib/Direction")
 };
