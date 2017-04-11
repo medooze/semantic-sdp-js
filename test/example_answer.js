@@ -10,6 +10,7 @@ const TrackInfo		= SemanticSDP.TrackInfo;
 const Setup		= SemanticSDP.Setup;
 const Direction		= SemanticSDP.Direction;
 const SourceGroupInfo   = SemanticSDP.SourceGroupInfo;
+const CodecInfo		= SemanticSDP.CodecInfo;
 
 
 const sdp = "v=0\r\n" +
@@ -142,21 +143,13 @@ let audioOffer = offer.getMedia("audio");
 //If we have audio
 if (audioOffer)
 {
-	//Create audio media
-	let audio = new MediaInfo("audio", "audio");
-	
-	//Set it recv only
-	audio.setDirection(Direction.RECVONLY);
-	
-	//Get codec type
-	let opus = audioOffer.getCodec("opus");
-	//Add opus codec
-	audio.addCodec(opus);
-
-	//Add audio extensions
-	for (let extension of audioOffer.getExtensions().entries())
-		//Add it
-		audio.addExtension(extension[0], extension[1]);
+	//Create answer
+	let audio = audioOffer.answer({
+		codecs		: CodecInfo.MapFromNames(["opus"]),
+		extensions	: new Set([
+			"urn:ietf:params:rtp-hdrext:ssrc-audio-level"
+		])
+	});
 	//Add it to answer
 	answer.addMedia(audio);
 }
@@ -167,23 +160,17 @@ let videoOffer = offer.getMedia("video");
 //If offer had video
 if (videoOffer)
 {
-	//Create video media
-	let  video = new MediaInfo("video", "video");
-	//Get codec types
-	let vp9 = videoOffer.getCodec("vp9");
-	let fec = videoOffer.getCodec("flexfec-03");
-	//Add video codecs
-	video.addCodec(vp9);
-	if (fec)
-		video.addCodec(fec);
-	//Limit incoming bitrate
-	video.setBitrate(1024);
-
-	//Add video extensions
-	for (let extension of videoOffer.getExtensions().entries())
-		//Add it
-		video.addExtension(extension[0], extension[1]);
-
+	//Create answer
+	let video = videoOffer.answer({
+		codecs		: CodecInfo.MapFromNames(["vp8","flexfec-03"],true),
+		extensions	: new Set([
+			"urn:ietf:params:rtp-hdrext:toffset",
+			"http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time",
+			"urn:3gpp:video-orientation",
+			"http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01",
+			"http://www.webrtc.org/experiments/rtp-hdrext/playout-delay"
+		])
+	});
 	//Add it to answer
 	answer.addMedia(video);
 }
@@ -221,10 +208,4 @@ for (let i=1;i<4;i++)
 }
 		
 console.log("Answer:"+answer.toString());
-
-const cloned = answer.clone();
-
-console.log("Cloned:"+cloned.toString());
-
-console.log(JSON.stringify(answer.plain()));
 
