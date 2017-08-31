@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test/example.js",
-    "docs"   : "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
+    "docs": "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "homepage": "https://github.com/medooze/semantic-sdp-js#readme",
   "dependencies": {
     "randombytes": "^2.0.3",
-    "sdp-transform": "medooze/sdp-transform"
+    "sdp-transform": "^2.3.0"
   }
 }
