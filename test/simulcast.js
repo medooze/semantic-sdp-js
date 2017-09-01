@@ -47,13 +47,14 @@ const sdp =
 	"a=fmtp:126 profile-level-id=42e01f;level-asymmetry-allowed=1;packetization-mode=1\r\n" + 
 	"a=fmtp:97 profile-level-id=42e01f;level-asymmetry-allowed=1\r\n" + 
 	"a=fmtp:120 max-fs=12288;max-fr=60\r\n" + 
-	"a=fmtp:121 max-fs=12288;max-fr=60\r\n" + 
+	"a=fmtp:121 max-fs=12284;max-fr=63\r\n" + 
 	"a=ice-pwd:4caefce9e4e140554a3d521a2ed39d08\r\n" + 
 	"a=ice-ufrag:d8289e69\r\n" + 
 	"a=mid:sdparta_1\r\n" + 
 	"a=msid:{cb25209c-85a0-4206-b7fa-a60d9f86af44} {bda117ec-857c-456c-b944-e5d354f51ddc}\r\n" + 
 	"a=rid:f send\r\n" + 
 	"a=rid:h send\r\n" + 
+	"a=rid:i send\r\n" + 
 	"a=rid:q send pt=120,121;max-width=1280;max-height=720;max-fps=15\r\n" + 
 	"a=rtcp-fb:120 nack\r\n" + 
 	"a=rtcp-fb:120 nack pli\r\n" + 
@@ -78,7 +79,7 @@ const sdp =
 	"a=rtpmap:97 H264/90000\r\n" + 
 	"a=setup:actpass\r\n" + 
 	//"a=simulcast:send 1,~4;2;3 recv c\r\n" +
-	"a=simulcast:send 1,~4;2;3\r\n" +
+	"a=simulcast:send f,~h;i;q\r\n" +
 	"a=ssrc:2169237449 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n" + 
 	"a=ssrc:3812576694 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n" + 
 	"a=ssrc:3431483321 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n";
