@@ -1,6 +1,6 @@
 {
   "name": "semantic-sdp",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Minimal SDP information semantic data model and parsing tools",
   "main": "index.js",
   "scripts": {
