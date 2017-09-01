@@ -90,7 +90,24 @@ var offer = SDPInfo.process(sdp);
 console.dir(offer.plain(), {depth: null, colors: true});
 console.log(offer.toString());
 
-const answer = offer.getMedia("video").answer({
+//Get local DTLS and ICE info
+const dtls = new DTLSInfo(Setup.reverse(offer.getDTLS().getSetup()),"sha-256","F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F");
+const ice  = new ICEInfo("af46F","a34FasdS++jdfofdslkjsd/SDV");
+
+//Get local candidte
+const candidate = new CandidateInfo(1,1, "udp", 2122260223, "192.168.0.196", 56143, "host");
+
+//Create local SDP info
+let answer = new SDPInfo();
+
+//Add ice and dtls info
+answer.setDTLS(dtls);
+answer.setICE(ice);
+answer.addCandidate(candidate);
+
+//Add video answer media
+answer.addMedia(
+	offer.getMedia("video").answer({
 		codecs: CodecInfo.MapFromNames(["VP8"], true),
 		extensions: new Set([
 			"urn:ietf:params:rtp-hdrext:toffset",
@@ -101,5 +118,8 @@ const answer = offer.getMedia("video").answer({
 			"urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id"
 		]),
 		simulcast: true
-	});
+	})
+);
+	
 console.dir(answer.plain(), {depth: null, colors: true});
+console.log(answer.toString());
