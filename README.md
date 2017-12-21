@@ -396,7 +396,7 @@ And the serialized JSON string:
   ],
   "candidates": [
     {
-      "fundation": 1,
+      "foundation": 1,
       "componentId": 1,
       "transport": "udp",
       "priority": 2122260223,
