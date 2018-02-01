@@ -121,6 +121,14 @@ answer.addMedia(
 		simulcast: true
 	})
 );
-	
-console.dir(answer.plain(), {depth: null, colors: true});
-console.log(answer.toString());
+
+console.log("Answer:"+answer.toString());
+const plain = answer.plain();
+console.dir(plain, {depth: null, colors: true});
+
+const cloned = answer.clone();
+console.dir(cloned, {depth: null, colors: true});
+console.log("Cloned:"+cloned.toString());
+
+const expanded = SDPInfo.expand(plain);
+console.log("Expanded:"+expanded.toString());

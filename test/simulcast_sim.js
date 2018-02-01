@@ -115,5 +115,12 @@ const sdp =
 //Process the sdp
 var offer = SDPInfo.process(sdp);
 
-console.dir(offer.plain(), {depth: null, colors: true});
-console.log(offer.toString());
+console.log("Offer:"+offer.toString());
+const plain = offer.plain();
+console.dir(plain, {depth: null, colors: true});
+
+const cloned = offer.clone();
+console.log("Cloned:"+cloned.toString());
+
+const expanded = SDPInfo.expand(plain);
+console.log("Expanded:"+expanded.toString());

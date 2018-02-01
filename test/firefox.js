@@ -149,4 +149,12 @@ for (let i=1;i<4;i++)
 	answer.addStream(stream);
 }
 		
-console.log(answer.toString());
+console.log("Answer:"+answer.toString());
+const plain = answer.plain();
+console.dir(plain, {depth: null, colors: true});
+
+const cloned = answer.clone();
+console.log("Cloned:"+cloned.toString());
+
+const expanded = SDPInfo.expand(plain);
+console.log("Expanded:"+expanded.toString());
