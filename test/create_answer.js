@@ -12,19 +12,6 @@ const Setup		= SemanticSDP.Setup;
 const Direction		= SemanticSDP.Direction;
 const SourceGroupInfo   = SemanticSDP.SourceGroupInfo;
 
-const RTCPFeedbackMessages = 
-{
-	audio : [],
-	video :  [
-		{ "id": "transport-cc"},
-		{ "id": "ccm", "params": ["fir"]},
-		{ "id": "nack"},
-		{ "id": "nack", "params": ["pli"]}
-	]
-};
-
-
-
 //Create SDP Info
 const sdpInfo = SDPInfo.create({
 	dtls		: {
