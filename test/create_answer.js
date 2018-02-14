@@ -15,6 +15,7 @@ const SourceGroupInfo   = SemanticSDP.SourceGroupInfo;
 //Create SDP Info
 const sdpInfo = SDPInfo.create({
 	dtls		: {
+		"setup"	      : Setup.ACTIVE,
 		"hash"        : "sha-256",
 		"fingerprint" : "F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F"
 	},
@@ -93,6 +94,7 @@ console.dir(sdpInfo2.plain(),{depth: null, colors: true});
 
 const answer1 = sdpInfo.answer({
 	dtls		: {
+		"setup"	      : "PASSIVE",
 		"hash"        : "sha-256",
 		"fingerprint" : "F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F"
 	},
