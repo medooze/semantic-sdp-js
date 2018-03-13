@@ -23,6 +23,7 @@ const sdp = "v=0\r\n" +
 	"a=rtcp:9 IN IP4 0.0.0.0\r\n" +
 	"a=ice-ufrag:ez5G\r\n" +
 	"a=ice-pwd:1F1qS++jzWLSQi0qQDZkX/QV\r\n" +
+	"a=candidate:1 1 UDP 33554431 35.188.215.104 59110 typ host\r\n" +
 	"a=fingerprint:sha-256 D2:FA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F\r\n" +
 	"a=setup:actpass\r\n" +
 	"a=connection:new\r\n" +
@@ -55,6 +56,7 @@ const sdp = "v=0\r\n" +
 	"a=rtcp:9 IN IP4 0.0.0.0\r\n" +
 	"a=ice-ufrag:ez5G\r\n" +
 	"a=ice-pwd:1F1qS++jzWLSQi0qQDZkX/QV\r\n" +
+	"a=candidate:1 1 UDP 33554431 35.188.215.104 59110 typ host\r\n" +
 	"a=fingerprint:sha-256 D2:FA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F\r\n" +
 	"a=setup:actpass\r\n" +
 	"a=mid:video\r\n" +
@@ -120,6 +122,9 @@ const sdp = "v=0\r\n" +
 
 //Process the sdp
 var offer = SDPInfo.process(sdp);
+
+console.log("Offer:"+offer.toString());
+console.dir(offer.plain(), {depth: null, colors: true});
 
 //Get local DTLS and ICE info
 const dtls = new DTLSInfo(Setup.reverse(offer.getDTLS().getSetup()),"sha-256","F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F");
