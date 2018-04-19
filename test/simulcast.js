@@ -83,7 +83,6 @@ const sdp =
 	"a=ssrc:2169237449 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n" + 
 	"a=ssrc:3812576694 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n" + 
 	"a=ssrc:3431483321 cname:{6af8befe-6c10-4eaf-8f5b-df07ea6f7bed}\r\n";
-		
 
 //Process the sdp
 var offer = SDPInfo.process(sdp);
