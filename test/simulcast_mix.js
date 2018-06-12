@@ -164,7 +164,7 @@ const sdp =
 	"a=rid:l0 send ssrc=3509170687\r\n" +
 	"a=rid:l1 send ssrc=100\r\n" +
 	"a=rid:l2 send ssrc=102\r\n" +
-	"a=x-google-flag:conference\r\n" +
+	"a=x-google-flag:conference\r\n";
 
 //Process the sdp
 var offer = SDPInfo.process(sdp);
