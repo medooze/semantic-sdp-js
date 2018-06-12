@@ -65,8 +65,6 @@ const sdp =
 //Process the sdp
 var offer = SDPInfo.process(sdp);
 
-
-
 //Get local DTLS and ICE info
 const dtls = new DTLSInfo(Setup.PASSIVE,"sha-256","F2:AA:0E:C3:22:59:5E:14:95:69:92:3D:13:B4:84:24:2C:C2:A2:C0:3E:FD:34:8E:5E:EA:6F:AF:52:CE:E6:0F");
 const ice  = new ICEInfo("af46F","a34FasdS++jdfofdslkjsd/SDV");
