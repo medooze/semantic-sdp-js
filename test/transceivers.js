@@ -639,3 +639,6 @@ console.log("Offer:"+offer.toString());
 const plain = offer.plain();
 console.dir(plain, {depth: null, colors: true});
 
+console.log("Track for sdparta_4")
+const track = offer.getTrackByMediaId("sdparta_4");
+console.dir(track.plain(), {depth: null, colors: true});
