@@ -124,6 +124,7 @@ const sdp = "v=0\r\n" +
 var offer = SDPInfo.process(sdp);
 
 console.log("Offer:"+offer.toString());
+console.dir(offer, {depth: null, colors: true});
 console.dir(offer.plain(), {depth: null, colors: true});
 
 //Get local DTLS and ICE info
@@ -233,4 +234,5 @@ const cloned = answer.clone();
 console.log("Cloned:"+cloned.toString());
 
 const expanded = SDPInfo.expand(plain);
+console.dir(expanded, {depth: null, colors: true});
 console.log("Expanded:"+expanded.toString());
