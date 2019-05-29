@@ -3,6 +3,7 @@
   "version": "3.16.0",
   "description": "Minimal SDP information semantic data model and parsing tools",
   "main": "index.js",
+  "types": "./semantic-sdp.d.ts",
   "scripts": {
     "test": "test/example.js",
     "docs": "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
