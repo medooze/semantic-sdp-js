@@ -25,6 +25,6 @@
   "homepage": "https://github.com/medooze/semantic-sdp-js#readme",
   "dependencies": {
     "randombytes": "^2.0.3",
-    "sdp-transform": "^2.3.0"
+    "sdp-transform": "^2.12.0"
   }
 }
