@@ -4,6 +4,7 @@ module.exports =
 	CandidateInfo		: require("./lib/CandidateInfo"),
 	CodecInfo		: require("./lib/CodecInfo"),
 	DTLSInfo		: require("./lib/DTLSInfo"),
+	SDESInfo        : require("./lib/SDESInfo"),
 	ICEInfo			: require("./lib/ICEInfo"),
 	MediaInfo		: require("./lib/MediaInfo"),
 	Setup			: require("./lib/Setup"),
