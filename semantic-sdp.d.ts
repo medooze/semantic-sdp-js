@@ -152,7 +152,7 @@ declare module 'semantic-sdp' {
      * @param {Object} params		- Parameters to create ansser
      * @param {ICEInfo|Object} params.ice		- ICE info object
      * @param {DTLSInfo|Object} params.dtls	- DTLS info object
-     * @params{Array<CandidateInfo> params.candidates - Array of Ice candidates
+     * @param {Array<CandidateInfo>} params.candidates - Array of Ice candidates
      * @param {Map<String,DTLSInfo} params.capabilites - Capabilities for each
      *     media type
      * @returns {SDPInfo} answer
@@ -327,7 +327,7 @@ declare module 'semantic-sdp' {
      * @param {Object} params		- Parameters to create ansser
      * @param {ICEInfo} params.ice		- ICE info object
      * @param {DTLSInfo} params.dtls	- DTLS info object
-     * @params{Array<CandidateInfo> params.candidates - Array of Ice candidates
+     * @param {Array<CandidateInfo>} params.candidates - Array of Ice candidates
      * @param {Map<String,DTLSInfo} params.capabilites - Capabilities for each
      *     media type
      * @returns {SDPInfo} answer
@@ -488,7 +488,7 @@ declare module 'semantic-sdp' {
 
     /**
      * Set codec map
-     * @param {Map<Number,CodecInfo> codecs - Map of codec info objecs
+     * @param {Map<Number,CodecInfo>} codecs - Map of codec info objecs
      */
     setCodecs(codecs: {[id: number]: CodecInfo}): void;
 
@@ -581,9 +581,9 @@ declare module 'semantic-sdp' {
      *     the supported codec names
      * @param {Set<String>} supported.extensions - List of strings with the
      *     supported codec names
-     * @param {Boolean] supported.simulcast - Simulcast is enabled
+     * @param {Boolean} supported.simulcast - Simulcast is enabled
      * @param {Array<String>} supported.rtcpfbs - Supported RTCP feedback params
-     * @return {MediaInfo}
+     * @returns {MediaInfo}
      */
     answer(supported: SupportedMedia|null): MediaInfo;
 
@@ -606,12 +606,12 @@ declare module 'semantic-sdp' {
      *     on media info
      * @param {Map<String,CodecInfo> | Array<String>} supported.codecs - Map or
      *     codecInfo or list of strings with the supported codec names
-     * @param {boolean] rtx - If rtx is supported for codecs (only needed if
+     * @param {Boolean} rtx - If rtx is supported for codecs (only needed if
      *     passing codec names instead of CodecInfo)
-     * @param {Object] rtcpbfs
+     * @param {Object} rtcpbfs
      * @param {Array<String>} supported.extensions - List of strings with the
      *     supported codec names
-     * @return {MediaInfo}
+     * @returns {MediaInfo}
      */
     static create(type: MediaType, supported: SupportedMedia|null): MediaInfo;
 
@@ -943,7 +943,7 @@ declare module 'semantic-sdp' {
 
     /**
      * Set the payload type for codec
-     * @params {Number} type
+     * @param {Number} type
      */
     setType(type: number): void;
 
@@ -1000,7 +1000,7 @@ declare module 'semantic-sdp' {
 
     /**
      * Add an RTCP feedback parameter to this codec type
-     * @params {RTCPFeedbackInfo} rtcpfb - RTCP feedback info objetc
+     * @param {RTCPFeedbackInfo} rtcpfb - RTCP feedback info object
      */
     addRTCPFeedback(rtcpfb: RTCPFeedbackInfo): void;
 
@@ -1021,9 +1021,9 @@ declare module 'semantic-sdp' {
      * Create a map of CodecInfo from codec names.
      * Payload type is assigned dinamically
      * @param {Array<String>} names
-     * @return Map<String,CodecInfo>
-     * @params {Boolean} rtx - Should we add rtx?
+     * @param {Boolean} rtx - Should we add rtx?
      * @param {Array<String>} params - RTCP feedback params
+     * @returns {Map<String,CodecInfo>}
      */
     static MapFromNames(names: string[], rtx: boolean, rtcpfbs: string[]):
         Map<string, CodecInfo>;
