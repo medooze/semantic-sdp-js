@@ -236,3 +236,6 @@ console.log("Cloned:"+cloned.toString());
 const expanded = SDPInfo.expand(plain);
 console.dir(expanded, {depth: null, colors: true});
 console.log("Expanded:"+expanded.toString());
+
+
+console.log(JSON.stringify(offer.plain(),null,4));
