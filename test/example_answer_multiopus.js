@@ -33,7 +33,7 @@ const sdp = "v=0\r\n" +
 	"a=rtcp-mux\r\n" +
 	"a=rtpmap:111 multiopus/48000/8\r\n" +
 	"a=rtcp-fb:111 transport-cc\r\n" +
-	"a=fmtp:111 minptime=10;useinbandfec=1\r\n" +
+	"a=fmtp:111 channel_mapping=0,6,1,2,3,4,5,7;coupled_streams=3;minptime=10;num_streams=5;useinbandfec=1\r\n" +
 	"a=rtpmap:103 ISAC/16000\r\n" +
 	"a=rtpmap:104 ISAC/32000\r\n" +
 	"a=rtpmap:9 G722/8000\r\n" +
@@ -145,7 +145,7 @@ const answer1 = offer.answer({
 	}],
 	capabilities	: {
 		audio : {
-			codecs		: ["multiopus"],
+			codecs		: ["multiopus;num_streams=5"],
 			extensions	: ["urn:ietf:params:rtp-hdrext:ssrc-audio-level","http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01"],
 		}
 	}
