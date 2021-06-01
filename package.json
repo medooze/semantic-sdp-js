@@ -4,6 +4,11 @@
   "description": "Minimal SDP information semantic data model and parsing tools",
   "main": "index.js",
   "types": "./semantic-sdp.d.ts",
+  "files": [
+    "lib",
+    "index.js",
+    "semantic-sdp.d.ts"
+  ],
   "scripts": {
     "test": "test/example.js",
     "docs": "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
