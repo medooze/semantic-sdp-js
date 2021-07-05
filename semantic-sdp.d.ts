@@ -490,7 +490,7 @@ declare module 'semantic-sdp' {
      * Set codec map
      * @param {Map<Number,CodecInfo>} codecs - Map of codec info objecs
      */
-    setCodecs(codecs: {[id: number]: CodecInfo}): void;
+    setCodecs(codecs: Map<Number,CodecInfo>): void;
 
     /**
      * Get codec for payload type number
@@ -517,7 +517,7 @@ declare module 'semantic-sdp' {
      * Get all codecs in this media
      * @returns {Map<Number,CodecInfo>}
      */
-    getCodecs(): {[id: number]: CodecInfo};
+    getCodecs(): Map<Number,CodecInfo>;
 
     /**
      * Check if any of the codecs on the media description supports rtx
