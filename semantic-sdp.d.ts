@@ -339,6 +339,11 @@ declare module 'semantic-sdp' {
      * @returns {String}
      */
     toString(): string;
+    /**
+    * Convert to an SDP string for trickle-ice-sdpfrag
+    * @returns {String}
+    */
+    toIceFragmentString(): string;
   }
 
   /**
