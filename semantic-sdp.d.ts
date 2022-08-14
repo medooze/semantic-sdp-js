@@ -701,7 +701,7 @@ declare module 'semantic-sdp' {
      * @param {Object} plain JSON object
      * @returns {StreamInfo} Parsed Stream info
      */
-    static expand(plain: TrackInfoPlain): TrackInfo;
+    static expand(plain: StreamInfoPlain): StreamInfo;
   }
 
   /**
