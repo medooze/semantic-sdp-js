@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/medooze/semantic-sdp-js#readme",
   "dependencies": {
+    "equals-ignore-case": "^1.0.0",
     "randombytes": "^2.0.3",
     "sdp-transform": "^2"
   }
