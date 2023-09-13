@@ -2,15 +2,15 @@
   "name": "semantic-sdp",
   "version": "3.26.3",
   "description": "Minimal SDP information semantic data model and parsing tools",
-  "main": "index.js",
-  "types": "./semantic-sdp.d.ts",
+  "main": "dist/index.js",
   "files": [
     "lib",
-    "index.js",
-    "semantic-sdp.d.ts"
+    "dist"
   ],
   "scripts": {
     "test": "test/example.js",
+    "check": "tsc --noEmit",
+    "prepare": "rm -rf dist; tsc --checkJs false",
     "docs": "documentation build lib/SDPInfo.js lib/*.js --shallow -o docs -f html"
   },
   "repository": {
@@ -32,5 +32,8 @@
     "equals-ignore-case": "^1.0.0",
     "randombytes": "^2.0.3",
     "sdp-transform": "^2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
   }
 }

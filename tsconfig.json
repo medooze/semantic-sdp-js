@@ -1,0 +1,14 @@
+{
+  "include": ["lib/**/*"],
+  "compilerOptions": {
+    "lib": ["ES2018"],
+    "target": "ES2018",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "declaration": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "declarationMap": true
+  }
+}
