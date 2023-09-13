@@ -1,3 +1,6 @@
+# TypeScript output
+dist/
+
 # Logs
 logs
 *.log
