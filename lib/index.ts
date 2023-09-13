@@ -16,7 +16,7 @@ export import Direction = require("./Direction");
 
 // Manually defined types
 
-export type MediaType = 'audio'|'video';
+export type MediaType = 'audio'|'video'|'application';
 
 export interface SDPInfoParams {
 	// ICE info object
