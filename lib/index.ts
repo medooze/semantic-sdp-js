@@ -26,7 +26,9 @@ export interface SDPInfoParams {
 	// Array of Ice candidates
 	candidates?: CandidateInfo[];
 	// Capabilities for each media type
-	capabilities?: {[k: string]: SupportedMedia};
+	capabilities?: {[k in MediaType]?: SupportedMedia};
+
+	crypto?: CryptoInfo;
 }
 
 export interface RTCPFeedbackInfoPlain {
@@ -35,10 +37,10 @@ export interface RTCPFeedbackInfoPlain {
 }
 
 export interface SupportedMedia {
-	// List of strings with the supported codec names
-	codecs: {[id: string]: CodecInfo}|string[];
-	// List of strings with the supported codec names
-	extensions: string[];
+	// Map or codecInfo or list of strings with the supported codec names
+	codecs: Map<string, CodecInfo> | string[];
+	// List of strings with the supported extensions
+	extensions: Iterable<string>;
 	// Simulcast is enabled
 	simulcast?: boolean;
 	// Supported RTCP feedback params
@@ -46,6 +48,8 @@ export interface SupportedMedia {
 	// If rtx is supported for codecs (only needed if passing codec names
 	// instead of CodecInfo)
 	rtx?: boolean;
+	// Data channel is supported
+	dataChannel?: DataChannelInfoPlain;
 }
 
 export type DirectionPlain =|'sendrecv'|'sendonly'|'recvonly'|'inactive';
@@ -55,7 +59,8 @@ export interface CodecInfoPlain {
 	type: string;
 	rtx?: number;
 	params?: {[k: string]: string};
-	rtcpfbs: RTCPFeedbackInfoPlain[];
+	rtcpfbs?: RTCPFeedbackInfoPlain[];
+	channels?: number;
 }
 export interface StreamInfoPlain {
 	id: string;
@@ -68,8 +73,8 @@ export interface RIDInfoPlain {
 	params: {[k: string]: string};
 }
 export interface SimulcastInfoPlain {
-	send: SimulcastStreamInfo[][];
-	recv: SimulcastStreamInfo[][];
+	send: SimulcastStreamInfoPlain[][];
+	recv: SimulcastStreamInfoPlain[][];
 }
 export interface MediaInfoPlain {
 	id: string;
@@ -80,6 +85,8 @@ export interface MediaInfoPlain {
 	extensions?: {[extID: number]: string};
 	rids?: RIDInfoPlain[];
 	simulcast?: SimulcastInfoPlain;
+	dataChannel?: DataChannelInfoPlain;
+	control?: string;
 }
 export interface CandidateInfoPlain {
 	foundation: string;
@@ -107,10 +114,16 @@ export interface DTLSInfoPlain {
 	hash: string;
 	fingerprint: string;
 }
+export interface CryptoInfoPlain {
+	tag?: number;
+	suite?: string;
+	keyParams?: string;
+	sessionParams?: string;
+}
 export interface TrackEncodingInfoPlain {
 	id: string;
 	paused: boolean;
-	codecs: {[id: string]: CodecInfo};
+	codecs: {[id: string]: CodecInfoPlain};
 	params: {[k: string]: string};
 }
 export interface TrackInfoPlain {
@@ -119,18 +132,32 @@ export interface TrackInfoPlain {
 	mediaId?: string;
 	ssrcs: number[];
 	groups?: SourceGroupInfoPlain[];
-	encodings?: TrackEncodingInfoPlain[];
+	encodings?: TrackEncodingInfoPlain[][];
 }
 export interface SDPInfoPlain {
 	version: number;
 	streams: StreamInfoPlain[];
 	medias: MediaInfoPlain[];
 	candidates: CandidateInfoPlain[];
+	crypto?: CryptoInfoPlain;
 	ice?: ICEInfoPlain;
 	dtls?: DTLSInfoPlain;
+	extmapAllowMixedNotSupported?: boolean;
 }
 
 export interface SimulcastStreamInfoPlain {
 	id: string;
 	paused: boolean;
+}
+
+export interface DataChannelInfoPlain {
+	port: number;
+	maxMessageSize: number;
+}
+
+export interface SourceInfoPlain {
+	ssrc: number;
+	cname: string;
+	streamId: string;
+	trackId: string;
 }
