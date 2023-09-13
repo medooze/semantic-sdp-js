@@ -34,6 +34,8 @@
     "sdp-transform": "^2"
   },
   "devDependencies": {
+    "@types/randombytes": "^2.0.0",
+    "@types/sdp-transform": "^2.4.6",
     "typescript": "^5.2.2"
   }
 }
