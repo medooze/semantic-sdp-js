@@ -56,7 +56,7 @@ export type DirectionPlain =|'sendrecv'|'sendonly'|'recvonly'|'inactive';
 
 export interface CodecInfoPlain {
 	codec: string;
-	type: string;
+	type: number;
 	rtx?: number;
 	params?: {[k: string]: string};
 	rtcpfbs?: RTCPFeedbackInfoPlain[];
@@ -97,7 +97,7 @@ export interface CandidateInfoPlain {
 	port: number;
 	type: string;
 	relAddr?: string;
-	relPort?: string;
+	relPort?: number;
 }
 export interface SourceGroupInfoPlain {
 	semantics: string;
