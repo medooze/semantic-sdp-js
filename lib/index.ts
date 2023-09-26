@@ -38,7 +38,7 @@ export interface RTCPFeedbackInfoPlain {
 
 export interface SupportedMedia {
 	// Map or codecInfo or list of strings with the supported codec names
-	codecs: Map<string, CodecInfo> | string[];
+	codecs: Map<number, CodecInfo> | string[];
 	// List of strings with the supported extensions
 	extensions: Iterable<string>;
 	// Simulcast is enabled
