@@ -18,6 +18,10 @@ export import Direction = require("./Direction");
 
 export type MediaType = 'audio'|'video'|'application';
 
+export type Capabilities = { [k in MediaType]?: SupportedMedia };
+
+export type SDPParams = { [k: string]: string };
+
 export interface SDPInfoParams {
 	// ICE info object
 	ice?: ICEInfo;
@@ -34,10 +38,6 @@ export interface SDPInfoParams {
 export interface RTCPFeedbackInfoPlain {
 	id: string;
 	params?: string[];
-}
-
-export interface Capabilities {
-	[k in MediaType]?: SupportedMedia;
 }
 
 export interface SupportedMedia {
@@ -57,10 +57,6 @@ export interface SupportedMedia {
 }
 
 export type DirectionPlain = 'sendrecv'|'sendonly'|'recvonly'|'inactive';
-
-export interface SDPParams {
-	[k: string]: string;
-}
 
 export interface CodecInfoPlain {
 	codec: string;
