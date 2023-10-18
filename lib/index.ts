@@ -23,10 +23,10 @@ export interface SDPInfoParams {
 	ice?: ICEInfo;
 	// DTLS info object
 	dtls?: DTLSInfo;
-	// Array of Ice candidates
+	// Array of ICE candidates
 	candidates?: CandidateInfo[];
 	// Capabilities for each media type
-	capabilities?: {[k in MediaType]?: SupportedMedia};
+	capabilities?: Capabilities;
 
 	crypto?: CryptoInfo;
 }
@@ -34,6 +34,10 @@ export interface SDPInfoParams {
 export interface RTCPFeedbackInfoPlain {
 	id: string;
 	params?: string[];
+}
+
+export interface Capabilities {
+	[k in MediaType]?: SupportedMedia;
 }
 
 export interface SupportedMedia {
@@ -52,13 +56,17 @@ export interface SupportedMedia {
 	dataChannel?: DataChannelInfoPlain;
 }
 
-export type DirectionPlain =|'sendrecv'|'sendonly'|'recvonly'|'inactive';
+export type DirectionPlain = 'sendrecv'|'sendonly'|'recvonly'|'inactive';
+
+export interface SDPParams {
+	[k: string]: string;
+}
 
 export interface CodecInfoPlain {
 	codec: string;
 	type: number;
 	rtx?: number;
-	params?: {[k: string]: string};
+	params?: SDPParams;
 	rtcpfbs?: RTCPFeedbackInfoPlain[];
 	channels?: number;
 }
@@ -70,7 +78,7 @@ export interface RIDInfoPlain {
 	id: string;
 	direction: DirectionPlain;
 	formats: number[];
-	params: {[k: string]: string};
+	params: SDPParams;
 }
 export interface SimulcastInfoPlain {
 	send: SimulcastStreamInfoPlain[][];
@@ -124,7 +132,7 @@ export interface TrackEncodingInfoPlain {
 	id: string;
 	paused: boolean;
 	codecs: {[id: string]: CodecInfoPlain};
-	params: {[k: string]: string};
+	params: SDPParams;
 }
 export interface TrackInfoPlain {
 	id: string;
