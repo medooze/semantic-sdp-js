@@ -43,13 +43,14 @@ export interface RTCPFeedbackInfoPlain {
 export interface SupportedMedia {
 	// Map or codecInfo or list of strings with the supported codec names
 	codecs: Map<number, CodecInfo> | string[];
-	// List of strings with the supported extensions
-	extensions: Iterable<string>;
+	// List of strings with the supported extension URIs
+	extensions?: Iterable<string>;
 	// Simulcast is enabled
 	simulcast?: boolean;
-	// Supported RTCP feedback params
-	rtcpfbs: RTCPFeedbackInfoPlain[];
-	// If rtx is supported for codecs (only needed if passing codec names
+	// Supported RTCP feedback params (only used if passing codec names
+	// instead of CodecInfo)
+	rtcpfbs?: RTCPFeedbackInfoPlain[];
+	// If rtx is supported for codecs (only used if passing codec names
 	// instead of CodecInfo)
 	rtx?: boolean;
 	// Data channel is supported
