@@ -23,13 +23,13 @@ export type Capabilities = { [k in MediaType]?: SupportedMedia };
 export type SDPParams = { [k: string]: string };
 
 export interface SDPInfoParams {
-	// ICE info object
+	/** ICE info object */
 	ice?: ICEInfo;
-	// DTLS info object
+	/** DTLS info object */
 	dtls?: DTLSInfo;
-	// Array of ICE candidates
+	/** Array of ICE candidates */
 	candidates?: CandidateInfo[];
-	// Capabilities for each media type
+	/** Capabilities for each media type */
 	capabilities?: Capabilities;
 
 	crypto?: CryptoInfo;
@@ -41,19 +41,17 @@ export interface RTCPFeedbackInfoPlain {
 }
 
 export interface SupportedMedia {
-	// Map or codecInfo or list of strings with the supported codec names
+	/** Map or codecInfo or list of strings with the supported codec names */
 	codecs: Map<number, CodecInfo> | string[];
-	// List of strings with the supported extension URIs
+	/** List of strings with the supported extension URIs */
 	extensions?: Iterable<string>;
-	// Simulcast is enabled
+	/** Simulcast is enabled */
 	simulcast?: boolean;
-	// Supported RTCP feedback params (only used if passing codec names
-	// instead of CodecInfo)
+	/** Supported RTCP feedback params (only used if passing codec names instead of CodecInfo) */
 	rtcpfbs?: RTCPFeedbackInfoPlain[];
-	// If rtx is supported for codecs (only used if passing codec names
-	// instead of CodecInfo)
+	/** If rtx is supported for codecs (only used if passing codec names instead of CodecInfo) */
 	rtx?: boolean;
-	// Data channel is supported
+	/** Data channel is supported */
 	dataChannel?: DataChannelInfoPlain;
 }
 
