@@ -133,7 +133,7 @@ export interface TrackInfoPlain {
 	id: string;
 	media: MediaType;
 	mediaId?: string;
-	ssrcs: number[];
+	ssrcs?: number[];
 	groups?: SourceGroupInfoPlain[];
 	encodings?: TrackEncodingInfoPlain[][];
 }
