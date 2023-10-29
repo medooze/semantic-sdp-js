@@ -126,10 +126,10 @@ export interface DTLSInfoPlain {
 	fingerprint: string;
 }
 export interface CryptoInfoPlain {
-	tag?: number;
-	suite?: string;
-	keyParams?: string;
-	sessionParams?: string;
+	tag: number;
+	suite: string;
+	keyParams: string;
+	sessionParams: string;
 }
 export interface TrackEncodingInfoPlain {
 	id: string;

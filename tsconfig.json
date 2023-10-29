@@ -9,7 +9,7 @@
     "checkJs": true,
     "strict": true,
     "noImplicitAny": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "declaration": true,
     "outDir": "dist",
     "sourceMap": true,
