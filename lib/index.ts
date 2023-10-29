@@ -12,6 +12,10 @@ export import StreamInfo = require("./StreamInfo");
 export import TrackInfo = require("./TrackInfo");
 export import RTCPFeedbackInfo = require("./RTCPFeedbackInfo");
 export import TrackEncodingInfo = require("./TrackEncodingInfo");
+export import RIDInfo = require("./RIDInfo");
+export import SimulcastInfo = require("./SimulcastInfo");
+export import SimulcastStreamInfo = require("./SimulcastStreamInfo");
+export import DataChannelInfo = require("./DataChannelInfo");
 export import Direction = require("./Direction");
 
 // Manually defined types
@@ -164,3 +168,23 @@ export interface SourceInfoPlain {
 	streamId: string;
 	trackId: string;
 }
+
+// TypeLike is an alias for "Type | TypePlain"
+
+export type RTCPFeedbackInfoLike = RTCPFeedbackInfo | RTCPFeedbackInfoPlain;
+export type CodecInfoLike = CodecInfo | CodecInfoPlain;
+export type StreamInfoLike = StreamInfo | StreamInfoPlain;
+export type RIDInfoLike = RIDInfo | RIDInfoPlain;
+export type SimulcastInfoLike = SimulcastInfo | SimulcastInfoPlain;
+export type MediaInfoLike = MediaInfo | MediaInfoPlain;
+export type CandidateInfoLike = CandidateInfo | CandidateInfoPlain;
+export type SourceGroupInfoLike = SourceGroupInfo | SourceGroupInfoPlain;
+export type ICEInfoLike = ICEInfo | ICEInfoPlain;
+export type DTLSInfoLike = DTLSInfo | DTLSInfoPlain;
+export type CryptoInfoLike = CryptoInfo | CryptoInfoPlain;
+export type TrackEncodingInfoLike = TrackEncodingInfo | TrackEncodingInfoPlain;
+export type TrackInfoLike = TrackInfo | TrackInfoPlain;
+export type SDPInfoLike = SDPInfo | SDPInfoPlain;
+export type SimulcastStreamInfoLike = SimulcastStreamInfo | SimulcastStreamInfoPlain;
+export type DataChannelInfoLike = DataChannelInfo | DataChannelInfoPlain;
+export type SourceInfoLike = SourceInfo | SourceInfoPlain;
