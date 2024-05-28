@@ -20,6 +20,8 @@ export import Direction = require("./Direction");
 
 // Manually defined types
 
+export type TrackType = 'audio'|'video';
+
 export type MediaType = 'audio'|'video'|'application';
 
 export type Capabilities = { [k in MediaType]?: SupportedMedia };
@@ -28,15 +30,15 @@ export type SDPParams = { [k: string]: string };
 
 export interface SDPInfoParams {
 	/** ICE info object */
-	ice?: ICEInfo;
+	ice?: ICEInfoLike;
 	/** DTLS info object */
-	dtls?: DTLSInfo;
+	dtls?: DTLSInfoLike;
 	/** Array of ICE candidates */
-	candidates?: CandidateInfo[];
+	candidates?: CandidateInfoLike[];
 	/** Capabilities for each media type */
 	capabilities?: Capabilities;
 
-	crypto?: CryptoInfo;
+	crypto?: CryptoInfoLike;
 }
 
 export interface RTCPFeedbackInfoPlain {
@@ -46,7 +48,7 @@ export interface RTCPFeedbackInfoPlain {
 
 export interface SupportedMedia {
 	/** Map or codecInfo or list of strings with the supported codec names */
-	codecs: Map<number, CodecInfo> | string[];
+	codecs?: Map<number, CodecInfo> | string[];
 	/** List of strings with the supported extension URIs */
 	extensions?: Iterable<string>;
 	/** Simulcast is enabled */
@@ -59,6 +61,8 @@ export interface SupportedMedia {
 	dataChannel?: DataChannelInfoPlain;
 }
 
+export type SetupPlain = 'active'|'passive'|'actpass'|'inactive';
+export type DirectionWayPlain = 'send'|'recv';
 export type DirectionPlain = 'sendrecv'|'sendonly'|'recvonly'|'inactive';
 
 export interface CodecInfoPlain {
@@ -75,7 +79,7 @@ export interface StreamInfoPlain {
 }
 export interface RIDInfoPlain {
 	id: string;
-	direction: DirectionPlain;
+	direction: DirectionWayPlain;
 	formats: number[];
 	params: SDPParams;
 }
@@ -117,7 +121,7 @@ export interface ICEInfoPlain {
 	endOfCandidates?: boolean;
 }
 export interface DTLSInfoPlain {
-	setup: string;
+	setup?: SetupPlain;
 	hash: string;
 	fingerprint: string;
 }
@@ -135,7 +139,7 @@ export interface TrackEncodingInfoPlain {
 }
 export interface TrackInfoPlain {
 	id: string;
-	media: MediaType;
+	media: TrackType;
 	mediaId?: string;
 	ssrcs?: number[];
 	groups?: SourceGroupInfoPlain[];
@@ -159,7 +163,7 @@ export interface SimulcastStreamInfoPlain {
 
 export interface DataChannelInfoPlain {
 	port: number;
-	maxMessageSize: number;
+	maxMessageSize?: number;
 }
 
 export interface SourceInfoPlain {
