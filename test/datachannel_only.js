@@ -1,16 +1,17 @@
-const SemanticSDP = require("../index");
-
-const SDPInfo		= SemanticSDP.SDPInfo;
-const MediaInfo		= SemanticSDP.MediaInfo;
-const CandidateInfo	= SemanticSDP.CandidateInfo;
-const DTLSInfo		= SemanticSDP.DTLSInfo;
-const ICEInfo		= SemanticSDP.ICEInfo;
-const StreamInfo	= SemanticSDP.StreamInfo;
-const TrackInfo		= SemanticSDP.TrackInfo;
-const Setup		= SemanticSDP.Setup;
-const Direction		= SemanticSDP.Direction;
-const SourceGroupInfo   = SemanticSDP.SourceGroupInfo;
-const CodecInfo		= SemanticSDP.CodecInfo;
+const SemanticSDP = require("..");
+const {
+	SDPInfo,
+	MediaInfo,
+	CandidateInfo,
+	DTLSInfo,
+	ICEInfo,
+	StreamInfo,
+	TrackInfo,
+	Setup,
+	Direction,
+	SourceGroupInfo,
+	CodecInfo,
+} = require("..");
 
 const sdp = "v=0\r\n" +
 		"o=- 5636137646675714991 2 IN IP4 127.0.0.1\r\n" +
