@@ -1,13 +1,14 @@
-const SemanticSDP = require("../index");
-
-const SDPInfo		= SemanticSDP.SDPInfo;
-const MediaInfo		= SemanticSDP.MediaInfo;
-const CandidateInfo	= SemanticSDP.CandidateInfo;
-const DTLSInfo		= SemanticSDP.DTLSInfo;
-const ICEInfo		= SemanticSDP.ICEInfo;
-const StreamInfo	= SemanticSDP.StreamInfo;
-const TrackInfo		= SemanticSDP.TrackInfo;
-const Setup		= SemanticSDP.Setup;
+const SemanticSDP = require("..");
+const {
+	SDPInfo,
+	MediaInfo,
+	CandidateInfo,
+	DTLSInfo,
+	ICEInfo,
+	StreamInfo,
+	TrackInfo,
+	Setup,
+} = require("..");
 
 
 const sdp = 

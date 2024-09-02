@@ -1,6 +1,7 @@
-const SemanticSDP = require("../index");
-
-const SDPInfo		= SemanticSDP.SDPInfo;
+const SemanticSDP = require("..");
+const {
+	SDPInfo,
+} = require("..");
 
 const plain = {
 	version: 0,

@@ -1,7 +1,8 @@
 const assert = require('assert');
-const SemanticSDP = require('../index');
-
-const MediaInfo = SemanticSDP.MediaInfo;
+const SemanticSDP = require("..");
+const {
+	MediaInfo,
+} = require("..");
 
 const capabilities = {
   codecs: ['vp9'],
