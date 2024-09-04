@@ -139,11 +139,16 @@ export interface TrackEncodingInfoPlain {
 	codecs: {[id: string]: CodecInfoPlain};
 	params: SDPParams;
 }
+export interface TrackInfoPlainNamedSSRCs {
+	media: number;
+	rtx?: number;
+	fec?: number;
+}
 export interface TrackInfoPlain {
 	id: string;
 	media: TrackType;
 	mediaId?: string;
-	ssrcs?: number[];
+	ssrcs?: number[] | TrackInfoPlainNamedSSRCs;
 	groups?: SourceGroupInfoPlain[];
 	encodings?: TrackEncodingInfoPlain[][];
 }
