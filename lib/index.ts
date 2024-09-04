@@ -144,6 +144,13 @@ export interface TrackInfoPlainNamedSSRCs {
 	rtx?: number;
 	fec?: number;
 }
+
+export interface EncodingSourceInfo {
+	rid?: number;
+	media?: number;
+	rtx?: number;
+	fec?: number;
+}
 export interface TrackInfoPlain {
 	id: string;
 	media: TrackType;
