@@ -37,10 +37,8 @@ export interface SDPInfoParams {
 	candidates?: CandidateInfoLike[];
 	/** Capabilities for each media type */
 	capabilities?: Capabilities;
-	/** Crypto info objet*/
+
 	crypto?: CryptoInfoLike;
-	/** Generate unified like media ids*/
-	unified: boolean
 }
 
 export interface RTCPFeedbackInfoPlain {
