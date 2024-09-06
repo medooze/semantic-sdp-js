@@ -144,11 +144,20 @@ export interface TrackInfoPlainNamedSSRCs {
 	rtx?: number;
 	fec?: number;
 }
+
+export interface EncodingSourceInfo {
+	id?: string;
+	rid?: string;
+	media?: number;
+	rtx?: number;
+	fec?: number;
+}
 export interface TrackInfoPlain {
 	id: string;
 	media: TrackType;
 	mediaId?: string;
-	ssrcs?: number[] | TrackInfoPlainNamedSSRCs;
+	rid?: string;  // Only used in expand
+	ssrcs?: number[] | TrackInfoPlainNamedSSRCs; // Only used in expand
 	groups?: SourceGroupInfoPlain[];
 	encodings?: TrackEncodingInfoPlain[][];
 }
