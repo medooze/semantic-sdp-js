@@ -41,6 +41,8 @@ export interface SDPInfoParams {
 	crypto?: CryptoInfoLike;
 	/** Generate unified like media ids*/
 	unified?: boolean
+	/** Streams to add to the sdp*/
+	streams?: StreamInfoLike[]
 }
 
 export interface RTCPFeedbackInfoPlain {
