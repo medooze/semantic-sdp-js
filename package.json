@@ -31,7 +31,8 @@
   "dependencies": {
     "equals-ignore-case": "^1.0.0",
     "randombytes": "^2.0.3",
-    "sdp-transform": "^2"
+    "sdp-transform": "^2",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "@types/randombytes": "^2.0.0",
